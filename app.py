@@ -253,7 +253,9 @@ class AppCadastro(tk.Tk):
             self.preco_var,
         ):
             variavel.set("")
-        self.tabela.selection_remove(*self.tabela.selection())
+        selecionados = self.tabela.selection()
+        if selecionados:
+            self.tabela.selection_remove(*selecionados)
         self.salvar_botao.configure(text="Cadastrar produto")
         self.cancelar_botao.configure(state="disabled")
         self.excluir_botao.configure(state="disabled")
