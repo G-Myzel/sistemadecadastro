@@ -1,15 +1,13 @@
+from app import appCadastro
 from db import conectar, criar_banco_e_tabela
-from app import appCadatro
 
 
-if __name__ == '__main__':
-    try:
-        c = conectar(usar_banco=False)
-        criar_banco_e_tabela(c)
-        c.close()
-    except Exception:
-        pass
+def main():
+    conexao = conectar()
+    criar_banco_e_tabela(conexao)
+    aplicativo = appCadastro(conexao)
+    aplicativo.mainloop()
 
-   app = appCadatro()
-   app.mainloop()
 
+if __name__ == "__main__":
+    main()
